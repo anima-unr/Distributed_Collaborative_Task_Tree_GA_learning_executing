@@ -1,0 +1,176 @@
+NodeList: ['ROOT_4_0_000', 'THEN_0_0_001', 'AND_2_0_002', 'PLACE_3_0_003', 'OR_1_0_004', 'PLACE_3_0_005', 'PLACE_3_0_006','AND_2_0_007','PLACE_3_0_008','PLACE_3_0_009',
+'ROOT_4_1_010', 'THEN_0_1_011', 'AND_2_1_012', 'PLACE_3_1_013','OR_1_1_014', 'PLACE_3_1_015', 'PLACE_3_1_016','AND_2_1_017','PLACE_3_1_018','PLACE_3_1_019']
+
+Nodes:
+  ROOT_4_0_000:
+    mask:
+      type: 4
+      robot: 0
+      node: 0
+    parent: 'NONE'
+    children: ['THEN_0_0_001']
+    peers: ['ROOT_4_1_010']
+  THEN_0_0_001:
+    mask:
+      type: 0
+      robot: 0
+      node: 1
+    parent: ROOT_4_0_000
+    children: ['AND_2_0_002', 'AND_2_0_007']
+    peers: ['THEN_0_1_011']
+  AND_2_0_002:
+    mask:
+      type: 2
+      robot: 0
+      node: 2
+    parent: THEN_0_0_001
+    children: ['PLACE_3_0_003', 'OR_1_0_004']
+    peers: ['AND_2_1_012']
+  PLACE_3_0_003:
+    mask:
+      type: 6
+      robot: 0
+      node: 3
+    parent: AND_2_0_002
+    children: ['NONE']
+    peers: ['PLACE_3_1_013']
+    object: Red
+  OR_1_0_004:
+    mask:
+      type: 1
+      robot: 0
+      node: 4
+    parent: AND_2_0_002
+    children: ['PLACE_3_0_005', 'PLACE_3_0_006']
+    peers: ['OR_1_1_014']
+  PLACE_3_0_005:
+    mask:
+      type: 6
+      robot: 0
+      node: 5
+    parent: OR_1_0_004
+    children: ['NONE']
+    peers: ['PLACE_3_1_015']
+    object: Blue
+  PLACE_3_0_006:
+    mask:
+      type: 6
+      robot: 0
+      node: 6
+    parent: OR_1_0_004
+    children: ['NONE']
+    peers: ['PLACE_3_1_016']
+    object: Green
+  AND_2_0_007:
+    mask:
+      type: 2
+      robot: 0
+      node: 7
+    parent: THEN_0_0_001
+    children: ['PLACE_3_0_008', 'PLACE_3_0_009']
+    peers: ['AND_2_1_017']
+  PLACE_3_0_008:
+    mask:
+      type: 6
+      robot: 0
+      node: 8
+    parent: AND_2_0_007
+    children: ['NONE']
+    peers: ['PLACE_3_1_018']
+    object: Yellow
+  PLACE_3_0_009:
+    mask:
+      type: 6
+      robot: 0
+      node: 9
+    parent: AND_2_0_007
+    children: ['NONE']
+    peers: ['PLACE_3_1_019']
+    object: Pink
+
+  ROOT_4_1_010:
+    mask:
+      type: 4
+      robot: 1
+      node: 10
+    parent: 'NONE'
+    children: ['THEN_0_1_011']
+    peers: ['ROOT_4_0_000']
+  THEN_0_1_011:
+    mask:
+      type: 0
+      robot: 1
+      node: 11
+    parent: ROOT_4_1_010
+    children: ['AND_2_1_012', 'AND_2_1_017']
+    peers: ['THEN_0_0_001']
+  AND_2_1_012:
+    mask:
+      type: 2
+      robot: 1
+      node: 12
+    parent: THEN_0_1_011
+    children: ['PLACE_3_1_013', 'OR_1_1_014']
+    peers: ['AND_2_0_002']
+  PLACE_3_1_013:
+    mask:
+      type: 6
+      robot: 1
+      node: 13
+    parent: AND_2_1_012
+    children: ['NONE']
+    peers: ['PLACE_3_0_003']
+    object: Red
+  OR_1_1_014:
+    mask:
+      type: 1
+      robot: 1
+      node: 14
+    parent: AND_2_1_012
+    children: ['PLACE_3_1_015', 'PLACE_3_1_016']
+    peers: ['OR_1_0_004']
+  PLACE_3_1_015:
+    mask:
+      type: 6
+      robot: 1
+      node: 15
+    parent: OR_1_1_014
+    children: ['NONE']
+    peers: ['PLACE_3_0_005']
+    object: Blue
+  PLACE_3_1_016:
+    mask:
+      type: 6
+      robot: 1
+      node: 16
+    parent: OR_1_1_014
+    children: ['NONE']
+    peers: ['PLACE_3_0_006']
+    object: Green
+  AND_2_1_017:
+    mask:
+      type: 2
+      robot: 1
+      node: 17
+    parent: THEN_0_1_011
+    children: ['PLACE_3_1_018', 'PLACE_3_1_019']
+    peers: ['AND_2_0_007']
+  PLACE_3_1_018:
+    mask:
+      type: 6
+      robot: 1
+      node: 18
+    parent: AND_2_1_017
+    children: ['NONE']
+    peers: ['PLACE_3_0_008']
+    object: Yellow
+  PLACE_3_1_019:
+    mask:
+      type: 6
+      robot: 1
+      node: 19
+    parent: AND_2_1_017
+    children: ['NONE']
+    peers: ['PLACE_3_0_009']
+    object: Pink
+

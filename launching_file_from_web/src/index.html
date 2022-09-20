@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" href="data:,"> 
+<meta charset="utf-8" />
+
+<script type="text/javascript" src="http://static.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js"></script>
+<script type="text/javascript" src="http://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+
+<script type="text/javascript" type="text/javascript">
+  // Connecting to ROS
+  // -----------------
+  
+
+  var ros = new ROSLIB.Ros({
+    url : 'ws://bashira.rd.unr.edu:9090'
+  });
+
+  ros.on('connection', function() {
+    console.log('Connected to websocket server.');
+  });
+
+  ros.on('error', function(error) {
+    console.log('Error connecting to websocket server: ', error);
+  });
+
+  ros.on('close', function() {
+    console.log('Connection to websocket server closed.');
+  });
+
+
+
+  // Subscribing to a Topic
+  // ----------------------
+
+  var result;
+  update_actual_param();
+
+function init() {
+
+  var listener = new ROSLIB.Topic({
+    ros : ros,
+    name : '/listener',
+    messageType : 'std_msgs/String'
+  });
+
+  listener.subscribe(function(message) {
+    
+    window.result = message.data;
+    // window.alert('Received message on ' + listener.name + ': ' + window.result);
+
+    document.getElementById("spanResult").innerHTML  = window.result;
+    // document.getElementById("spanResult").style.font-size  = 100;
+    // document.getElementById("spanResult").style.text-align =center;
+    // document.getElementById("spanResult").style.color =Red;
+
+    
+    //listener.unsubscribe();
+  });
+}
+
+ function update_actual_param(){
+  // var ros = new ROSLIB.Ros({
+  //   url : 'ws://134.197.40.54:9091' //human
+  // });
+
+  document.getElementById("spanResult").innerHTML  = window.result;
+  document.getElementById("spanResult").style.color = 'red';
+ }
+  
+</script>
+</head>
+
+<body onload="init();">
+  <h1>Task Learning Sequence</h1>
+  <p>Please wait for the robot to learn the sequence and show it to you here!</p>
+  
+  <!-- <p id="update_param_main" style="font-size: 100px; text-align: center;"> <button onclick="update_actual_param()">Main Game</button> </p> -->
+  <span id="spanResult">
+</body>
+</html>
